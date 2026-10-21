@@ -20,10 +20,14 @@ customSteps: |
   click on table at row "1" and column "Item Code"
   type "E2E-SEED-002"
   check that page contains "E2E-SEED-002, Products"
-  click "E2E-SEED-002, Products"
+  press Enter
   click on table at row "1" and column "Qty"
   type "2"
   click on table at row "1" and column "Basic Rate (as per Stock UOM)"
+  click on table at row "1" and column "No."
+  check that page contains "Editing Row"
+  check that page contains "$ 80.00"
+  press Escape
   click "Save" using OCR only
   check that page contains "Draft"
   scroll down until page contains "Total Outgoing Value"

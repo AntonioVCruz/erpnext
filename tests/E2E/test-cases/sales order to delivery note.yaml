@@ -13,7 +13,7 @@ customSteps: |
   click on table at row "1" and column "Item Code"
   type "E2E-SEED-001"
   check that page contains "E2E-SEED-001, Products"
-  click "E2E-SEED-001, Products"
+  press Enter
   check that page contains "$ 25.00"
   click "Save" using OCR only
   check that page contains "Draft"
