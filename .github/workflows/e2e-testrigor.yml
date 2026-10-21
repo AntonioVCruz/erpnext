@@ -10,6 +10,9 @@ name: E2E (testRigor)
 # Needs a TESTRIGOR_AUTH_TOKEN secret and a TESTRIGOR_SUITE_ID variable.
 
 on:
+  # TEMPORARY: lets the fork try the workflow before it is on the default branch.
+  push:
+    branches: [e2e/testrigor-ci]
   schedule:
     # After the nightly server tests
     - cron: "0 2 * * *"
