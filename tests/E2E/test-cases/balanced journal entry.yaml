@@ -1,0 +1,27 @@
+labels:
+  - accounts
+customSteps: |
+  log in as administrator
+  open the accounts module
+  click "Journal Entry"
+  click "dd Journal Entry"
+  click "Quick Entry"
+  check that page contains "Quick Journal Entry"
+  enter "150" into "Amount"
+  enter "Miscellaneous Expenses - ETC" into "Debit Account"
+  click "Quick Journal Entry"
+  enter "Cash - ETC" into "Credit Account"
+  click "Quick Journal Entry"
+  check that input "Debit Account" has value "Miscellaneous Expenses - ETC"
+  check that input "Credit Account" has value "Cash - ETC"
+  click "Save"
+  check that page contains "Draft"
+  check that page contains "Total Credit"
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "You submitted this document"
+  click "View"
+  click "edger"
+  check that page contains "Miscellaneous Expenses - ETC"
+  check that page contains "Cash - ETC"
+  check that page contains "$ 150.00"

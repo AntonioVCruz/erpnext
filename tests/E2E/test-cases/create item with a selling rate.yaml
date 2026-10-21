@@ -1,0 +1,32 @@
+labels:
+  - stock
+customSteps: |
+  log in as administrator
+  open the stock module
+  click "Item"
+  click "dd Item"
+  check that page contains "New Item"
+  generate unique name, then save it as "itemCode"
+  enter stored value "itemCode" into "Item Code"
+  click "Edit Full Form"
+  check that page contains "Standard Selling Rate"
+  enter "Products" into "Item Group"
+  press Tab
+  enter "12.50" into "Standard Selling Rate"
+  press Tab
+  click "Save" using OCR only
+  check that page contains "Item Price created at rate $ 12.50"
+  check that page contains "Enabled"
+  click "Selling"
+  click "Sales Order"
+  reload
+  click "Add Sales Order" using OCR only
+  enter "E2E Seed Customer A" into "Customer"
+  press Tab
+  enter "2030-01-31" into "Delivery Date"
+  press Escape
+  click on table at row "1" and column "Item Code"
+  type stored value "itemCode"
+  check that page contains string with parameters "${itemCode}, Products"
+  press Enter
+  check that page contains "$ 12.50"

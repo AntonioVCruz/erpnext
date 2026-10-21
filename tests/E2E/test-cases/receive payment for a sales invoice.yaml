@@ -1,0 +1,30 @@
+labels:
+  - accounts
+customSteps: |
+  log in as administrator
+  open the accounts module
+  click "Sales Invoice"
+  click "Add Sales Invoice" using OCR only
+  enter "E2E Seed Customer A" into "Customer"
+  press Tab
+  click on table at row "1" and column "Item"
+  type "E2E-SEED-002"
+  check that page contains "E2E-SEED-002, Products"
+  click "E2E-SEED-002, Products"
+  check that page contains "$ 40.00"
+  click "Save" using OCR only
+  check that page contains "Draft"
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "Unpaid"
+  click "Create"
+  click "ayment"
+  check that page contains "Payment References"
+  check that input "Paid Amount (USD)" has value "42.40"
+  click "Save" using OCR only
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "Submitted"
+  go back
+  check that page contains "Paid"
+  check that page does not contain "Unpaid"

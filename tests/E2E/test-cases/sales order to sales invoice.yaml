@@ -1,0 +1,29 @@
+labels:
+  - selling
+customSteps: |
+  log in as administrator
+  open the selling module
+  click "Sales Order"
+  click "Add Sales Order" using OCR only
+  enter "E2E Seed Customer A" into "Customer"
+  press Tab
+  enter "2030-01-31" into "Delivery Date"
+  press Escape
+  click on table at row "1" and column "Item Code"
+  type "E2E-SEED-002"
+  check that page contains "E2E-SEED-002, Products"
+  click "E2E-SEED-002, Products"
+  check that page contains "$ 40.00"
+  click "Save" using OCR only
+  check that page contains "Draft"
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "To Deliver and Bill"
+  click "Create"
+  click "ales Invoice"
+  click "Save" using OCR only
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "Unpaid"
+  scroll down until page contains "Outstanding Amount"
+  check that page contains "$ 42.40"

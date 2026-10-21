@@ -1,0 +1,4 @@
+enter stored value "erpnextUser" into "Email"
+enter stored value "erpnextPassword" into "Password"
+click "Continue"
+check that page contains "ERPNext"

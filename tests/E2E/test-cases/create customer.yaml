@@ -1,0 +1,16 @@
+labels:
+  - smoke
+  - selling
+customSteps: |
+  log in as administrator
+  open the selling module
+  click "Customer"
+  click "Add Customer" using OCR only
+  check that page contains "New Customer"
+  generate unique name, then save it as "customerName"
+  enter stored value "customerName" into "Customer Name"
+  click "Save"
+  check that page contains stored value "customerName"
+  click "Sales Order"
+  click "Customer"
+  check that page contains stored value "customerName"

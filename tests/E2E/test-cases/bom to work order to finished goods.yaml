@@ -1,0 +1,57 @@
+labels:
+  - manufacturing
+customSteps: |
+  log in as administrator
+  open the manufacturing module
+  click "BOM"
+  click "dd BOM"
+  enter "E2E-SEED-003" into "Item to manufacture"
+  check that page contains "E2E-SEED-003, Products"
+  press Enter
+  click on table at row "1" and column "Item Code"
+  type "E2E-SEED-001"
+  check that page contains "E2E-SEED-001, Products"
+  click "E2E-SEED-001, Products"
+  click "Add row"
+  click on table at row "2" and column "Item Code"
+  type "E2E-SEED-002"
+  check that page contains "E2E-SEED-002, Products"
+  click "E2E-SEED-002, Products"
+  check that page contains "$ 40.00"
+  click "Save" using OCR only
+  check that page contains "Draft"
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "Default"
+  click "Create"
+  click "ork Order"
+  check that page contains "Qty To Manufacture"
+  click "Create" below "Qty To Manufacture"
+  enter "Stores - ETC" into "Default source Warehouse"
+  press Tab
+  check that input "Default source Warehouse" has value "Stores - ETC"
+  click "Save" using OCR only
+  check that page contains "Draft"
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "Not Started"
+  click "Start"
+  check that page contains "Qty for Material Transfer for Manufacture"
+  click "Create" below "Qty for Material Transfer for Manufacture"
+  click "Save" using OCR only
+  check that page contains "Draft"
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "Submitted"
+  go back
+  check that page contains "In Process"
+  click "Finish"
+  check that page contains "Qty for Manufacture"
+  click "Create" below "Qty for Manufacture"
+  click "Save" using OCR only
+  check that page contains "Draft"
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "Submitted"
+  go back
+  check that page contains "Completed"

@@ -1,0 +1,38 @@
+labels:
+  - buying
+customSteps: |
+  log in as administrator
+  open the buying module
+  click "Purchase Order"
+  click "Add Purchase Order" using OCR only
+  enter "E2E Seed Supplier A" into "Supplier"
+  press Tab
+  press Escape
+  enter "2030-01-31" into "Required By"
+  press Escape
+  click on table at row "1" and column "Item Code"
+  type "E2E-SEED-001"
+  check that page contains "E2E-SEED-001, Products"
+  click "E2E-SEED-001, Products"
+  check that page contains "$ 20.00"
+  click "Save" using OCR only
+  check that page contains "Draft"
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "To Receive and Bill"
+  click "Create"
+  click "urchase Receipt"
+  click "Save" using OCR only
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "To Bill"
+  click "Create"
+  click "rchase Invoice"
+  click "Save" using OCR only
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "Unpaid"
+  scroll down until page contains "Outstanding Amount"
+  check that page contains "$ 21.20"
+  go back
+  check that page contains "Completed"

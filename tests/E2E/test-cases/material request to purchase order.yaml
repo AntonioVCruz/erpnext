@@ -1,0 +1,34 @@
+labels:
+  - stock
+  - buying
+customSteps: |
+  log in as administrator
+  open the stock module
+  click "Material Request"
+  click "dd Material Request"
+  enter "2030-01-31" into "Required By"
+  press Escape
+  click on table at row "1" and column "Item Code"
+  type "E2E-SEED-003"
+  check that page contains "E2E-SEED-003, Products"
+  click "E2E-SEED-003, Products"
+  click "Save" using OCR only
+  check that page contains "Draft"
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "Pending"
+  click "Create"
+  click "urchase Order"
+  check that page contains "E2E-SEED-003"
+  enter "E2E Seed Supplier A" into "Supplier"
+  press Tab
+  press Escape
+  click "Save" using OCR only
+  check that page contains "$ 80.00"
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "To Receive and Bill"
+  scroll down until page contains "Grand Total"
+  check that page contains "$ 84.80"
+  go back
+  check that page contains "Ordered"

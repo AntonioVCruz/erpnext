@@ -1,0 +1,67 @@
+name: E2E (testRigor)
+
+# Browser tests of the main business flows (tests/E2E), run by testRigor against a throwaway
+# ERPNext stack started on the runner. The site is reached through the testRigor CLI's
+# --localhost tunnel, so nothing is deployed anywhere.
+#
+# Not run on pull requests: forks cannot read the testRigor token secret. Run it nightly,
+# from the Actions tab, or on a branch you own.
+#
+# Needs a TESTRIGOR_AUTH_TOKEN secret and a TESTRIGOR_SUITE_ID variable.
+
+on:
+  schedule:
+    # After the nightly server tests
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+    inputs:
+      build:
+        description: 'Build ERPNext from the selected branch (otherwise run the published image)'
+        default: true
+        type: boolean
+      image:
+        description: 'Published image to run when not building'
+        default: 'frappe/erpnext:develop'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+# The suite is synced to tests/E2E on every run (--explicit-mutations), so runs must not overlap.
+concurrency:
+  group: e2e-testrigor
+  cancel-in-progress: false
+
+jobs:
+  e2e:
+    name: testRigor suite
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install testRigor CLI
+        run: npm install -g testrigor-cli@0.0.41-beta
+
+      - name: Build, start, provision and test
+        run: bash tests/E2E/ci/run-e2e.sh
+        env:
+          TESTRIGOR_AUTH_TOKEN: ${{ secrets.TESTRIGOR_AUTH_TOKEN }}
+          TESTRIGOR_SUITE_ID: ${{ vars.TESTRIGOR_SUITE_ID }}
+          BUILD_REPO: ${{ (github.event_name != 'workflow_dispatch' || inputs.build) && format('{0}/{1}', github.server_url, github.repository) || '' }}
+          BUILD_BRANCH: ${{ github.ref_name }}
+          ERPNEXT_IMAGE: ${{ inputs.image || 'frappe/erpnext:develop' }}
+          ARTIFACTS_DIR: ${{ runner.temp }}/e2e-artifacts
+
+      - name: Upload report and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-testrigor
+          path: ${{ runner.temp }}/e2e-artifacts
+          if-no-files-found: ignore

@@ -1,0 +1,38 @@
+labels:
+  - stock
+customSteps: |
+  log in as administrator
+  open the stock module
+  click "Stock Entry"
+  click "dd Stock Entry"
+  enter "Material Transfer" into "Stock Entry Type"
+  check that page contains "Material Transfer for Manufacture"
+  press Enter
+  check that page contains "Add to Transit"
+  click on table at row "1" and column "Source Warehouse"
+  type "Stores"
+  check that page contains "Stores - ETC"
+  press Enter
+  click on table at row "1" and column "Target Warehouse"
+  type "Work In Progress"
+  check that page contains "Work In Progress - ETC"
+  press Enter
+  click on table at row "1" and column "Item Code"
+  type "E2E-SEED-002"
+  check that page contains "E2E-SEED-002, Products"
+  click "E2E-SEED-002, Products"
+  click on table at row "1" and column "Qty"
+  type "2"
+  click on table at row "1" and column "Basic Rate (as per Stock UOM)"
+  click "Save" using OCR only
+  check that page contains "Draft"
+  scroll down until page contains "Total Outgoing Value"
+  check that page contains "$ 80.00"
+  click "Submit" using OCR only
+  click "Yes"
+  check that page contains "Submitted"
+  click "View"
+  click "tock Ledger"
+  check that page contains "-2.000"
+  check that page contains "Stores - ETC"
+  check that page contains "Work In Progress - ETC"
