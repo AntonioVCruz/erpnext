@@ -54,8 +54,10 @@ wait_for_site() {
 }
 
 login() {
-    # Retry: right after create-site the first logins can 500 while workers warm up.
-    for _ in $(seq 1 20); do
+    # Retry for as long as the install can take: right after create-site the first logins can
+    # 500 while workers warm up, and the desk can 500 until erpnext is installed (the hooks
+    # cached mid-install have no "jinja" entry).
+    for _ in $(seq 1 120); do
         if call -X POST "$base_url/api/method/login" -H "Content-Type: application/json" \
             -d "{\"usr\":\"$admin_user\",\"pwd\":\"$admin_password\"}" | grep -q '"Logged In"'; then
             # A session only gets a CSRF token once a desk page renders. Develop serves the desk
