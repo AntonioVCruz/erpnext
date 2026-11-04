@@ -10,7 +10,7 @@ customSteps: |
   generate unique name, then save it as "customerName"
   enter stored value "customerName" into "Customer Name"
   click "Save"
-  check that page contains stored value "customerName"
+  check that page does not contain "New Customer"
   click "Sales Order"
   click "Customer"
   check that page contains stored value "customerName"

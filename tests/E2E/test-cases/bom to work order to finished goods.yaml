@@ -28,6 +28,7 @@ customSteps: |
   click "ork Order"
   check that page contains "Qty To Manufacture"
   click "Create" below "Qty To Manufacture"
+  check that input "Work-in-Progress Warehouse" has value "Work In Progress - ETC"
   enter "Stores - ETC" into "Default source Warehouse"
   press Tab
   check that input "Default source Warehouse" has value "Stores - ETC"
