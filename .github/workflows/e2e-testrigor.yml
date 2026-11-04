@@ -49,7 +49,7 @@ jobs:
           node-version: 24
 
       - name: Install testRigor CLI
-        run: npm install -g testrigor-cli@0.0.41-beta
+        run: npm install -g @testrigor/testrigor-cli@2.0.9
 
       - name: Build, start, provision and test
         run: bash tests/E2E/ci/run-e2e.sh
